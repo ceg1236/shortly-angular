@@ -5,6 +5,7 @@ var gulp      = require('gulp'),
     bs        = require('browser-sync'),
     reload    = bs.reload,
     when      = require('gulp-if'),
+    karma     = require('gulp-karma'),
     shell     = require('gulp-shell');
 
 
@@ -33,6 +34,7 @@ gulp.task('start', ['serve'],function () {
 gulp.task('karma', shell.task([
   'karma start'
 ]));
+
 
 // start our node server using nodemon
 gulp.task('serve', function() {
