@@ -1,9 +1,13 @@
-<div id='container'>
+<div id='container' class='creator' ng-controller="ShortenController">
   <h1>Shorten a link</h1>
-  <form name="shortenForm" ng-submit='addLink()'>
-    <input type='text' ng-model='link.newLink'>
+  <form name="shortenForm" ng-click="addLink()">
+    <input name='link'type='text' ng-model='link.url' ng-class=
+    "{error: shortenForm.$invalid&&shortenForm.$dirty}">
     <button>Shorten</button>
   </form>
+  <div class='error' ng-model='link' ng-if="shortenForm.link.$error">
+    Please Enter a Valid URL
+  </div>
 </div>
 
 

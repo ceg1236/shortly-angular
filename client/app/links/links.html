@@ -1,3 +1,20 @@
 <div id='container'>
-{{ data.links }}
+<nav class='navigation'>
+  <ul>
+    <li><a href='/#/links'>Links</a></li>
+    <li><a href='/#/shorten'>Shorten</a></li>
+
+  </ul>
+</nav>
+<input ng-model='search' placeholder='Enter address'>
+  <ul>
+    <li type='url' class='link' ng-repeat="link in data.links |
+                  filter:search |
+                  orderBy: 'createdAt'">
+
+      <span class='original'>{{ link.url }}</span>
+      <span class='info'><a href="{{link.url}}">{{ link.base_url}}/{{link.code}}</a></span>
+      <span class='visits'>{{link.vists}}</span>
+    </li>
+  </ul>
 </div>
